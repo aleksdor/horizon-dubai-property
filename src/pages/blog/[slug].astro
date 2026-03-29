@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Horizon Dubai Property`} description={post.data.description} article={true} publishedDate={post.data.date}>
+
+  <article class="max-w-3xl mx-auto px-4 py-16">
+    <nav class="text-sm text-gray-500 mb-8">
+      <a href="/" class="hover:text-navy">Home</a> /
+      <a href="/blog/" class="hover:text-navy">Blog</a> /
+      <span class="text-gray-700">{post.data.title}</span>
+    </nav>
+
+    <p class="text-sm text-gold font-semibold mb-4">{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <div class="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-gray-900 prose-a:text-gold hover:prose-a:text-gold-dark prose-strong:text-gray-900 prose-table:border-collapse prose-th:border prose-th:border-gray-200 prose-th:bg-gray-50 prose-th:p-3 prose-td:border prose-td:border-gray-200 prose-td:p-3">
+      <Content />
+    </div>
+
+    <div class="mt-12 bg-gradient-to-r from-navy to-royal rounded-2xl p-8 text-center text-white">
+      <h2 class="text-xl font-bold mb-3 font-serif">Interested in Dubai Property?</h2>
+      <p class="text-white/70 mb-4">Contact Marina for a free consultation.</p>
+      <div class="flex gap-4 justify-center">
+        <a href="/contact/" class="bg-gold text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-gold-dark transition-colors text-sm">Send Enquiry</a>
+        <a href="https://wa.me/971528486680" class="border border-white text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-white/10 transition-colors text-sm">WhatsApp</a>
+      </div>
+    </div>
+  </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "author": { "@type": "Organization", "name": "Horizon Dubai Property" },
+    "publisher": { "@type": "Organization", "name": "Horizon Dubai Property" },
+    "datePublished": post.data.date,
+    "dateModified": post.data.date
+  })} />
+
+</BaseLayout>

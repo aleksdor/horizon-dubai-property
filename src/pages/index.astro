@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Dubai Property for Sale — Freehold, Golden Visa, Zero Tax | Horizon Dubai Property" description="Buy property in Dubai with full freehold ownership. Golden Visa eligible, 0% income tax, 6-8% rental yields. AI-powered property matching by Horizon Dubai Property.">
+
+  <!-- Hero -->
+  <section class="hero-gradient relative overflow-hidden min-h-[85vh] flex items-center">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 right-20 w-96 h-96 bg-gold/30 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-20 left-20 w-80 h-80 bg-royal/40 rounded-full blur-3xl animate-float" style="animation-delay: -3s"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
+      <div class="max-w-3xl">
+        <div class="gradient-line mb-6"></div>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          Invest in Dubai<br><span class="text-gradient">Real Estate</span>
+        </h1>
+        <p class="mt-6 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+          Freehold ownership for all nationalities. Zero income tax. 10-year Golden Visa.
+          AI-powered property matching from verified developers and owners.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/properties/" class="btn-primary">Browse Properties</a>
+          <a href="/golden-visa/" class="btn-outline">Golden Visa Guide</a>
+        </div>
+      </div>
+      <!-- Stats -->
+      <div class="mt-16 grid grid-cols-3 gap-6 max-w-xl">
+        <div data-reveal>
+          <p class="text-3xl lg:text-4xl font-bold text-gold">0%</p>
+          <p class="text-sm text-white/50 mt-1">Income Tax</p>
+        </div>
+        <div data-reveal>
+          <p class="text-3xl lg:text-4xl font-bold text-gold">100%</p>
+          <p class="text-sm text-white/50 mt-1">Freehold</p>
+        </div>
+        <div data-reveal>
+          <p class="text-3xl lg:text-4xl font-bold text-gold">10yr</p>
+          <p class="text-sm text-white/50 mt-1">Golden Visa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Dubai -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-reveal>
+        <div class="gradient-line mx-auto mb-4"></div>
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-navy">Why Dubai?</h2>
+        <p class="mt-3 text-gray-500 max-w-2xl mx-auto">The world's fastest-growing property market with unmatched investor benefits</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: '🏛️', title: '100% Freehold Ownership', desc: 'Full property ownership for all nationalities in designated freehold zones. Your name on the title deed.' },
+          { icon: '💰', title: '0% Income & Capital Gains Tax', desc: 'No income tax, no capital gains tax, no property tax on residential. Keep 100% of your rental income.' },
+          { icon: '🪪', title: '10-Year Golden Visa', desc: 'Invest AED 2M+ ($545K) and get a 10-year UAE residency visa for you and your family.' },
+          { icon: '📈', title: '6-8% Average Rental Yields', desc: 'Among the highest rental yields globally. Dubai Marina, JVC, and Business Bay lead the market.' },
+          { icon: '🌍', title: 'Global Business Hub', desc: 'Strategic location between Europe and Asia. 200+ nationalities, world-class infrastructure, Expo City legacy.' },
+          { icon: '🔒', title: 'RERA-Regulated Market', desc: 'Dubai Land Department and RERA provide robust investor protection, escrow accounts, and transparent transactions.' },
+        ].map(item => (
+          <div class="bg-sand-light rounded-2xl p-6 card-lift" data-reveal>
+            <span class="text-3xl">{item.icon}</span>
+            <h3 class="mt-4 font-bold text-navy text-lg">{item.title}</h3>
+            <p class="mt-2 text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Areas -->
+  <section class="py-20 bg-sand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-reveal>
+        <div class="gradient-line mx-auto mb-4"></div>
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-navy">Popular Areas</h2>
+        <p class="mt-3 text-gray-500">Top investment districts in Dubai</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { name: 'Dubai Marina', price: 'From $300K', yield: '6.5%', desc: 'Waterfront living, restaurants, yacht clubs. Most popular with expats.' },
+          { name: 'Downtown Dubai', price: 'From $280K', yield: '5.8%', desc: 'Burj Khalifa, Dubai Mall, Dubai Fountain. The iconic heart of Dubai.' },
+          { name: 'Palm Jumeirah', price: 'From $500K', yield: '4.5%', desc: 'World-famous man-made island. Luxury villas and apartments with private beaches.' },
+          { name: 'Business Bay', price: 'From $250K', yield: '6.8%', desc: 'Dubai Canal views, close to DIFC. Rapidly growing commercial and residential hub.' },
+          { name: 'JVC', price: 'From $150K', yield: '8.0%', desc: 'Highest yields in Dubai. Family-friendly community, new developments, great value.' },
+          { name: 'Dubai Hills Estate', price: 'From $350K', yield: '5.5%', desc: 'Golf course community by Emaar. Villas and apartments surrounded by parks.' },
+        ].map(area => (
+          <a href={`/properties/?area=${area.name.toLowerCase().replace(/\s+/g, '-')}`} class="bg-white rounded-2xl p-6 card-lift block" data-reveal>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-navy text-lg">{area.name}</h3>
+              <span class="text-gold font-bold text-sm">{area.yield} yield</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-3">{area.desc}</p>
+            <p class="text-sm font-semibold text-navy">{area.price}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-reveal>
+        <div class="gradient-line mx-auto mb-4"></div>
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-navy">How It Works</h2>
+        <p class="mt-3 text-gray-500">Three steps to your Dubai property</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          { step: '01', title: 'Tell Us What You Want', desc: 'Share your budget, preferred area, and goals. Investment? Residency? Vacation home? We tailor the search.' },
+          { step: '02', title: 'AI-Matched Properties', desc: 'Our AI scans thousands of listings and developer portfolios to find the best matches. Verified properties only.' },
+          { step: '03', title: 'Marina Guides You', desc: 'Our Dubai consultant Marina handles viewings, negotiations, legal checks, and Golden Visa paperwork.' },
+        ].map(item => (
+          <div class="text-center" data-reveal>
+            <div class="w-16 h-16 mx-auto bg-gold/10 rounded-2xl flex items-center justify-center mb-4">
+              <span class="font-display text-2xl font-bold text-gold">{item.step}</span>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 bg-navy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-reveal>
+        <div class="gradient-line mx-auto mb-4"></div>
+        <h2 class="font-display text-3xl lg:text-4xl font-bold">Why Choose Horizon Dubai</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          { icon: '🤖', title: 'AI-Powered Search', desc: 'We monitor 500+ sources daily using AI to find the best deals before they hit the open market.' },
+          { icon: '✅', title: 'Verified Properties Only', desc: 'Every listing checked: developer reputation, RERA registration, escrow status, payment plan terms.' },
+          { icon: '🌐', title: 'International Expertise', desc: 'Multilingual team. We work with clients from 30+ countries. Golden Visa, company setup, bank account — all covered.' },
+        ].map(item => (
+          <div class="text-center" data-reveal>
+            <span class="text-4xl">{item.icon}</span>
+            <h3 class="mt-4 font-bold text-lg">{item.title}</h3>
+            <p class="mt-2 text-white/60 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-sand-light">
+    <div class="max-w-3xl mx-auto px-4 text-center" data-reveal>
+      <div class="gradient-line mx-auto mb-6"></div>
+      <h2 class="font-display text-3xl lg:text-4xl font-bold text-navy">Ready to Invest in Dubai?</h2>
+      <p class="mt-4 text-gray-500 text-lg">Get a free consultation with Marina, our Dubai property consultant. WhatsApp, Telegram, or email — whatever works for you.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/971528486680?text=Hi%2C%20I'm%20interested%20in%20Dubai%20property" target="_blank" rel="noopener" class="btn-primary flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.614-1.48A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.115 0-4.079-.652-5.701-1.767l-.409-.261-2.737.879.692-2.602-.287-.442A9.71 9.71 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          WhatsApp Marina
+        </a>
+        <a href="https://t.me/Dubaimarina1202" target="_blank" rel="noopener" class="px-8 py-3.5 bg-navy text-white font-semibold rounded-xl hover:bg-royal transition-colors flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram Marina
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

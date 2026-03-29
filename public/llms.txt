@@ -1,0 +1,51 @@
+# Horizon Dubai Property
+
+> Premium Dubai real estate for international investors. Freehold ownership, Golden Visa assistance, zero income tax. AI-powered property matching.
+
+## About
+
+Horizon Dubai Property is a Dubai-based real estate agency serving international buyers. Part of the Horizon Property AI platform founded by Aleksandr Doronin (CEO, Blockchain Industrial Alliance). Marina is the on-ground property consultant in Dubai.
+
+### Key Differentiators
+- AI-powered property discovery across Dubai's market
+- RERA-verified listings with DLD title deed confirmation
+- Golden Visa end-to-end assistance (AED 2M+ properties)
+- Zero income tax, zero capital gains tax
+- Freehold ownership for all nationalities
+
+## Services
+- Property sales: apartments, villas, penthouses, townhouses (ready and off-plan)
+- Golden Visa processing through property investment
+- Off-plan investment with RERA escrow protection
+- Mortgage assistance for non-residents
+- Property management and rental services
+
+## Areas Covered
+Dubai Marina, Downtown Dubai, Palm Jumeirah, Business Bay, JVC, Dubai Hills, JBR, Dubai South, Emaar Beachfront, Creek Harbour, MBR City
+
+## Key Pages
+- /properties/ — Verified property listings with filters
+- /golden-visa/ — Golden Visa guide: requirements, process, costs
+- /off-plan/ — Off-plan buying guide with developer due diligence
+- /guides/ — All buying and investment guides
+- /faq/ — 12 frequently asked questions
+- /blog/ — Market analysis and area guides
+- /about/ — Team and company info
+- /contact/ — Enquiry form, WhatsApp, Telegram
+
+## Market Data (2026)
+| Area | Price Range | Yield | Type |
+|------|------------|-------|------|
+| Dubai Marina | $300K-$2M+ | 5-7% | Apartments |
+| Downtown Dubai | $400K-$3M+ | 4-6% | Apartments |
+| Palm Jumeirah | $500K-$10M+ | 4-5% | Villas, Apartments |
+| Business Bay | $250K-$1.5M | 6-7% | Apartments |
+| JVC | $150K-$500K | 7-8% | Apartments |
+| Dubai Hills | $300K-$2M | 5-7% | Villas, Apartments |
+
+## Contact
+- Email: dubai@horizonpropertyai.com
+- Phone: +971 52 848 6680
+- WhatsApp: wa.me/971528486680
+- Telegram: @Dubaimarina1202
+- Location: Dubai, UAE (UTC+4)

@@ -1,0 +1,113 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  article?: boolean;
+  publishedDate?: string;
+}
+
+const { title, description = 'Horizon Dubai Property — Premium Dubai real estate for international buyers. Freehold ownership, Golden Visa, zero tax. AI-powered property matching.', ogImage, article = false, publishedDate } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://dubai.horizonpropertyai.com').href;
+const defaultOgImage = 'https://dubai.horizonpropertyai.com/images/og-default.svg';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Horizon Dubai Property" />
+    <meta property="og:image" content={ogImage || defaultOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage || defaultOgImage} />
+    <!-- Geo -->
+    <meta name="geo.region" content="AE-DU" />
+    <meta name="geo.placename" content="Dubai, UAE" />
+    <title>{title}</title>
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DUBAI_GA4_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DUBAI_GA4_ID');
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://dubai.horizonpropertyai.com/#organization",
+          "name": "Horizon Dubai Property",
+          "url": "https://dubai.horizonpropertyai.com",
+          "description": "Premium Dubai real estate for international investors. Freehold ownership, Golden Visa assistance, zero income tax. AI-powered property matching.",
+          "areaServed": [
+            { "@type": "Place", "name": "Dubai Marina" },
+            { "@type": "Place", "name": "Downtown Dubai" },
+            { "@type": "Place", "name": "Palm Jumeirah" },
+            { "@type": "Place", "name": "Business Bay" },
+            { "@type": "Place", "name": "JVC" },
+            { "@type": "Place", "name": "Dubai Hills" },
+            { "@type": "Place", "name": "JBR" }
+          ],
+          "email": "dubai@horizonpropertyai.com",
+          "telephone": "+971528486680",
+          "knowsAbout": ["Dubai real estate", "Golden Visa UAE", "freehold property Dubai", "off-plan Dubai", "Dubai property investment", "RERA Dubai"],
+          "founder": { "@type": "Person", "name": "Aleksandr Doronin" },
+          "employee": { "@type": "Person", "name": "Marina", "jobTitle": "Property Consultant — Dubai" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://dubai.horizonpropertyai.com/#website",
+          "name": "Horizon Dubai Property",
+          "url": "https://dubai.horizonpropertyai.com",
+          "publisher": { "@id": "https://dubai.horizonpropertyai.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://dubai.horizonpropertyai.com/properties/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      if (revealEls.length > 0) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        revealEls.forEach(el => obs.observe(el));
+      }
+    </script>
+  </body>
+</html>

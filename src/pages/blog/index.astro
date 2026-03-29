@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout title="Dubai Property Blog — Market Insights & Investment Guides | Horizon Dubai Property" description="Expert articles on Dubai real estate: market trends, area guides, investment analysis, Golden Visa updates, and buying tips for international investors.">
+
+  <section class="hero-gradient py-32 lg:py-36">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="gradient-line mx-auto mb-6"></div>
+      <h1 class="text-4xl lg:text-5xl font-display font-bold text-white">Blog</h1>
+      <p class="mt-4 text-white/60 text-lg">Market insights, area guides, and investment analysis</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      {sortedPosts.length === 0 ? (
+        <p class="text-center text-gray-500 py-12">Articles coming soon. Check back for Dubai property market insights and investment guides.</p>
+      ) : (
+        <div class="space-y-8">
+          {sortedPosts.map(post => (
+            <a href={`/blog/${post.slug}/`} class="block group bg-sand-light rounded-2xl p-8 card-lift">
+              <p class="text-xs text-gold font-semibold mb-2">{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+              <h2 class="text-xl font-bold text-gray-900 group-hover:text-gold transition-colors">{post.data.title}</h2>
+              <p class="text-gray-600 mt-2">{post.data.description}</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+</BaseLayout>

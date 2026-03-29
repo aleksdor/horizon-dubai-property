@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  { q: "Can foreigners buy property in Dubai?", a: "Yes. Foreign nationals of any nationality can purchase freehold property in designated zones across Dubai. There are no restrictions on ownership — you receive a full title deed registered with the Dubai Land Department (DLD)." },
+  { q: "What is the Golden Visa and how do I qualify through property?", a: "The UAE Golden Visa is a 10-year renewable residency visa. Property investors qualify by purchasing real estate worth AED 2,000,000 (~$545,000 USD) or more. Multiple properties can be combined to reach the threshold. The visa covers the investor, spouse, and children." },
+  { q: "Is there income tax on Dubai rental income?", a: "No. The UAE has zero personal income tax. Rental income from Dubai property is not taxed locally. However, you may need to declare this income in your home country depending on your tax residency." },
+  { q: "Is there capital gains tax when selling property in Dubai?", a: "No. There is no capital gains tax in the UAE. When you sell property, you keep 100% of the profit. The only transaction cost is the 4% DLD transfer fee (typically split between buyer and seller)." },
+  { q: "What are the total costs of buying property in Dubai?", a: "Approximately 7-8% of the property value. This includes: DLD registration fee (4%), agency commission (2%), trustee/admin fees (~0.25%), and mortgage registration if applicable (0.25%). No stamp duty, no VAT on resale residential property." },
+  { q: "Is buying off-plan in Dubai safe?", a: "Yes, with proper due diligence. Dubai has strong off-plan regulations through RERA (Real Estate Regulatory Authority). Developer funds are held in DLD-regulated escrow accounts. Buyers should verify the developer's track record and RERA registration before purchasing." },
+  { q: "What are the best areas to invest in Dubai in 2026?", a: "For yields: JVC (7-8%), Dubai South (7-8%), Business Bay (6-7%). For appreciation: Dubai Marina, Downtown, Dubai Hills. For luxury: Palm Jumeirah, Emirates Hills. For Golden Visa eligible properties: Downtown, Marina, and Business Bay offer the widest selection above AED 2M." },
+  { q: "Can I get a mortgage as a foreigner in Dubai?", a: "Yes. UAE banks offer mortgages to non-residents at up to 50% LTV (loan-to-value) for properties above AED 5M and up to 60% LTV below AED 5M. Interest rates range from 4-6%. You'll need proof of income, bank statements, and passport copies." },
+  { q: "What is the DLD (Dubai Land Department) fee?", a: "The DLD registration fee is 4% of the property purchase price, paid at the time of transfer. This is a one-time fee. It is typically split 50/50 between buyer and seller, though this is negotiable." },
+  { q: "What annual costs should I expect as a property owner?", a: "Annual service charges vary by building and area: AED 15-30/sqft for apartments (e.g., AED 15,000-45,000 for a 1BR). No annual property tax. Building insurance is included in service charges. If renting out, property management fees are typically 5-8% of rental income." },
+  { q: "How long does it take to buy property in Dubai?", a: "For ready properties: 2-4 weeks from agreement to title deed transfer. For off-plan: initial booking takes 1-3 days, with completion upon handover (1-3 years). The process is straightforward and well-regulated." },
+  { q: "Do I need to visit Dubai to buy property?", a: "Not necessarily. Power of Attorney (POA) can be issued to a representative. However, we strongly recommend visiting for viewings and signing. Marina can arrange a focused viewing trip covering multiple properties in 2-3 days." },
+];
+---
+
+<BaseLayout title="Dubai Property FAQ — Frequently Asked Questions | Horizon Dubai Property" description="Answers to the most common questions about buying property in Dubai: ownership, Golden Visa, taxes, costs, off-plan, mortgages, and more.">
+
+  <section class="hero-gradient py-32 lg:py-40">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="gradient-line mx-auto mb-6"></div>
+      <h1 class="text-4xl lg:text-5xl font-display font-bold text-white">Frequently Asked Questions</h1>
+      <p class="mt-4 text-white/60 text-lg">Everything you need to know about buying property in Dubai</p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="space-y-6">
+        {faqs.map(faq => (
+          <div class="border-b border-gray-200 pb-6">
+            <h3 class="font-semibold text-gray-900 mb-2 text-lg">{faq.q}</h3>
+            <p class="text-gray-700">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-12 bg-gradient-to-r from-navy to-royal rounded-2xl p-8 text-center text-white">
+        <h2 class="text-2xl font-bold mb-4 font-serif">Still Have Questions?</h2>
+        <p class="text-white/70 mb-6">Marina is available to answer any questions about Dubai property investment.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact/" class="bg-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-gold-dark transition-colors">Send Enquiry</a>
+          <a href="https://wa.me/971528486680" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  })} />
+
+</BaseLayout>

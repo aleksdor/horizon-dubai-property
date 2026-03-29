@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const properties = [
+  { slug: 'marina-heights-2br', title: '2BR Apartment — Dubai Marina', area: 'Dubai Marina', type: 'Apartment', bedrooms: 2, price_usd: 450000, price_aed: 1650000, status: 'Ready', yield: '6.2%', sqft: 1200, desc: 'Stunning marina view, high floor, fully furnished. Walking distance to Marina Walk and JBR Beach.' },
+  { slug: 'downtown-studio', title: 'Studio — Downtown Dubai', area: 'Downtown Dubai', type: 'Apartment', bedrooms: 0, price_usd: 280000, price_aed: 1030000, status: 'Ready', yield: '7.1%', sqft: 550, desc: 'Burj Khalifa view, modern finish, hotel-managed. Ideal for short-term rental investment.' },
+  { slug: 'palm-3br-villa', title: '3BR Villa — Palm Jumeirah', area: 'Palm Jumeirah', type: 'Villa', bedrooms: 3, price_usd: 2500000, price_aed: 9180000, status: 'Ready', yield: '4.5%', sqft: 4500, desc: 'Private beach, garden frond. Fully renovated with private pool and rooftop terrace.' },
+  { slug: 'jvc-1br-offplan', title: '1BR — JVC (Off-Plan 2027)', area: 'JVC', type: 'Apartment', bedrooms: 1, price_usd: 180000, price_aed: 660000, status: 'Off-Plan', yield: '8.0%', sqft: 750, desc: 'New development by tier-1 developer. Payment plan: 20/80. Handover Q2 2027.' },
+  { slug: 'business-bay-2br', title: '2BR — Business Bay Canal', area: 'Business Bay', type: 'Apartment', bedrooms: 2, price_usd: 520000, price_aed: 1910000, status: 'Ready', yield: '6.8%', sqft: 1350, desc: 'Dubai Canal view, corner unit, premium tower. Close to Downtown and DIFC.' },
+  { slug: 'dubai-hills-villa', title: '4BR Villa — Dubai Hills Estate', area: 'Dubai Hills', type: 'Villa', bedrooms: 4, price_usd: 1200000, price_aed: 4410000, status: 'Ready', yield: '5.5%', sqft: 3800, desc: 'Golf course view, modern design, landscaped garden with private pool.' },
+  { slug: 'jbr-2br-beachfront', title: '2BR — JBR Beachfront', area: 'JBR', type: 'Apartment', bedrooms: 2, price_usd: 680000, price_aed: 2500000, status: 'Ready', yield: '5.8%', sqft: 1400, desc: 'Direct beach access, The Walk at JBR, sea view. Golden Visa eligible.' },
+  { slug: 'dubai-south-studio', title: 'Studio — Dubai South (Off-Plan)', area: 'Dubai South', type: 'Apartment', bedrooms: 0, price_usd: 120000, price_aed: 440000, status: 'Off-Plan', yield: '8.5%', sqft: 450, desc: 'Near Expo City and Al Maktoum Airport. Highest projected yields in Dubai. Payment plan 10/90.' },
+];
+
+const url = new URL(Astro.request.url);
+const areaFilter = url.searchParams.get('area') || '';
+const typeFilter = url.searchParams.get('type') || '';
+const statusFilter = url.searchParams.get('status') || '';
+
+let filtered = properties;
+if (areaFilter) filtered = filtered.filter(p => p.area.toLowerCase().includes(areaFilter.toLowerCase()));
+if (typeFilter) filtered = filtered.filter(p => p.type === typeFilter);
+if (statusFilter) filtered = filtered.filter(p => p.status === statusFilter);
+---
+
+<BaseLayout title="Dubai Properties for Sale — Apartments, Villas, Off-Plan | Horizon Dubai Property" description="Browse verified Dubai properties: apartments, villas, off-plan. Dubai Marina, Downtown, Palm Jumeirah, JVC, Business Bay. Freehold ownership, Golden Visa eligible.">
+
+  <section class="hero-gradient py-32 lg:py-36">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="gradient-line mx-auto mb-6"></div>
+      <h1 class="text-4xl lg:text-5xl font-display font-bold text-white">Dubai Properties</h1>
+      <p class="mt-4 text-white/60 text-lg">{filtered.length} verified properties available</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="bg-white border-b border-gray-100 py-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <form class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <select name="area" class="px-4 py-3 border border-gray-200 rounded-xl bg-white text-sm">
+          <option value="">All Areas</option>
+          <option value="dubai-marina">Dubai Marina</option>
+          <option value="downtown">Downtown</option>
+          <option value="palm">Palm Jumeirah</option>
+          <option value="business-bay">Business Bay</option>
+          <option value="jvc">JVC</option>
+          <option value="dubai-hills">Dubai Hills</option>
+          <option value="jbr">JBR</option>
+          <option value="dubai-south">Dubai South</option>
+        </select>
+        <select name="type" class="px-4 py-3 border border-gray-200 rounded-xl bg-white text-sm">
+          <option value="">All Types</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Villa">Villa</option>
+          <option value="Penthouse">Penthouse</option>
+          <option value="Townhouse">Townhouse</option>
+        </select>
+        <select name="status" class="px-4 py-3 border border-gray-200 rounded-xl bg-white text-sm">
+          <option value="">Ready & Off-Plan</option>
+          <option value="Ready">Ready</option>
+          <option value="Off-Plan">Off-Plan</option>
+        </select>
+        <button type="submit" class="bg-navy text-white rounded-xl font-semibold text-sm hover:bg-navy-light transition-colors">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Listings -->
+  <section class="py-12 bg-sand-light">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filtered.map(p => (
+          <div class="bg-white rounded-2xl overflow-hidden card-lift">
+            <div class="h-48 bg-gradient-to-br from-navy/10 to-royal/10 flex items-center justify-center relative">
+              <span class="text-6xl opacity-20">🏙️</span>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span class={`px-3 py-1 rounded-full text-xs font-semibold ${p.status === 'Off-Plan' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}`}>{p.status}</span>
+                {p.price_aed >= 2000000 && <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gold/20 text-gold-dark">Golden Visa</span>}
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-900 mb-1">{p.title}</h3>
+              <p class="text-sm text-gray-500 mb-3">{p.desc}</p>
+              <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
+                <span>{p.bedrooms === 0 ? 'Studio' : `${p.bedrooms} BR`}</span>
+                <span>•</span>
+                <span>{p.sqft} sqft</span>
+                <span>•</span>
+                <span class="text-gold font-semibold">{p.yield} yield</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xl font-bold text-navy">${p.price_usd.toLocaleString()}</p>
+                  <p class="text-xs text-gray-400">AED {p.price_aed.toLocaleString()}</p>
+                </div>
+                <a href="/contact/" class="px-4 py-2 bg-gold text-white text-sm rounded-lg font-semibold hover:bg-gold-dark transition-colors">Enquire</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact Us — Dubai Property Consultation | Horizon Dubai Property" description="Get a free Dubai property consultation. Contact Marina, our Dubai property consultant. WhatsApp, Telegram, email, or enquiry form.">
+
+  <section class="hero-gradient py-32 lg:py-40">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="gradient-line mx-auto mb-6"></div>
+      <h1 class="text-4xl lg:text-5xl font-display font-bold text-white">Get in Touch</h1>
+      <p class="mt-4 text-white/60 text-lg">Free consultation — no obligations. Marina is available 7 days a week.</p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-5 gap-12">
+      <!-- Contact Info -->
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl font-display font-bold text-gray-900 mb-6">Your Property Consultant</h2>
+        <div class="bg-sand-light rounded-2xl p-6 mb-6">
+          <p class="text-xl font-bold text-gray-900">Marina</p>
+          <p class="text-gray-500 text-sm">Property Consultant — Dubai</p>
+          <div class="mt-4 space-y-3">
+            <a href="https://wa.me/971528486680" class="flex items-center gap-3 text-gray-700 hover:text-gold transition-colors">
+              <span class="text-xl">💬</span>
+              <span>+971 52 848 6680 (WhatsApp)</span>
+            </a>
+            <a href="https://t.me/Dubaimarina1202" class="flex items-center gap-3 text-gray-700 hover:text-gold transition-colors">
+              <span class="text-xl">✈️</span>
+              <span>@Dubaimarina1202 (Telegram)</span>
+            </a>
+            <a href="mailto:dubai@horizonpropertyai.com" class="flex items-center gap-3 text-gray-700 hover:text-gold transition-colors">
+              <span class="text-xl">✉️</span>
+              <span>dubai@horizonpropertyai.com</span>
+            </a>
+          </div>
+        </div>
+        <div class="space-y-4 text-sm text-gray-500">
+          <p><strong class="text-gray-700">Office Hours:</strong> Sun-Sat, 9AM-8PM (GST/UTC+4)</p>
+          <p><strong class="text-gray-700">Response Time:</strong> Within 2 hours during office hours</p>
+          <p><strong class="text-gray-700">Languages:</strong> English, Russian, Arabic</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="lg:col-span-3">
+        <h2 class="text-2xl font-display font-bold text-gray-900 mb-6">Send an Enquiry</h2>
+        <form class="space-y-5" action="/api/contact" method="POST">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">Name *</label><input type="text" name="name" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none" /></div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">Email *</label><input type="email" name="email" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none" /></div>
+          </div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">Phone (WhatsApp preferred)</label><input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none" /></div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">What are you looking for?</label>
+            <select name="interest" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none bg-white">
+              <option value="">Select...</option>
+              <option value="buy">Buy property</option>
+              <option value="invest">Investment</option>
+              <option value="golden-visa">Golden Visa</option>
+              <option value="off-plan">Off-Plan project</option>
+              <option value="rent">Rent</option>
+              <option value="exploring">Just exploring</option>
+            </select>
+          </div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">Budget (USD)</label>
+            <select name="budget" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none bg-white">
+              <option value="">Select...</option>
+              <option value="under-200k">Under $200K</option>
+              <option value="200-400k">$200K – $400K</option>
+              <option value="400-600k">$400K – $600K</option>
+              <option value="600k-1m">$600K – $1M</option>
+              <option value="1m-2m">$1M – $2M</option>
+              <option value="2m+">$2M+</option>
+            </select>
+          </div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">Preferred Area</label>
+            <select name="area" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none bg-white">
+              <option value="">Any area</option>
+              <option value="dubai-marina">Dubai Marina</option>
+              <option value="downtown">Downtown Dubai</option>
+              <option value="palm-jumeirah">Palm Jumeirah</option>
+              <option value="business-bay">Business Bay</option>
+              <option value="jvc">JVC / Jumeirah Village Circle</option>
+              <option value="dubai-hills">Dubai Hills</option>
+              <option value="jbr">JBR</option>
+              <option value="dubai-south">Dubai South</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">Message</label><textarea name="message" rows="4" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none resize-none"></textarea></div>
+          <button type="submit" class="btn-primary w-full text-center">Send Enquiry</button>
+          <p class="text-xs text-gray-400 text-center">We'll respond within 2 hours. Your information is kept confidential.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

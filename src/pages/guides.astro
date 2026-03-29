@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Dubai Property Guides — Buying, Investment, Legal | Horizon Dubai Property" description="Complete guides to buying property in Dubai. Freehold ownership, off-plan investment, Golden Visa, DLD process, mortgages, and tax for international buyers.">
+
+  <section class="hero-gradient py-32 lg:py-40">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="gradient-line mx-auto mb-6"></div>
+      <h1 class="text-4xl lg:text-5xl font-display font-bold text-white">Guides & Resources</h1>
+      <p class="mt-4 text-white/60 text-lg">Everything international buyers need to know about Dubai property</p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid gap-6">
+        {[
+          { href: '/golden-visa/', title: 'Golden Visa Through Property Investment', desc: 'Complete guide to the UAE 10-year Golden Visa. Requirements: AED 2M+ property. Process, costs, family inclusion, benefits.', tag: 'Most Popular' },
+          { href: '/off-plan/', title: 'Off-Plan Property Guide', desc: 'How off-plan works in Dubai. RERA escrow protection, payment plans, developer due diligence, risks and rewards.', tag: 'Investment' },
+          { href: '/faq/', title: 'Frequently Asked Questions', desc: '12 expert-answered questions covering ownership, taxes, costs, mortgages, areas, and the buying process.', tag: 'FAQ' },
+          { href: '/blog/', title: 'Market Insights & Analysis', desc: 'Latest articles on Dubai real estate market trends, area guides, investment analysis, and regulatory updates.', tag: 'Blog' },
+        ].map(guide => (
+          <a href={guide.href} class="group bg-sand-light rounded-2xl p-8 flex items-start gap-6 card-lift">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-xl font-bold text-gray-900 group-hover:text-gold transition-colors">{guide.title}</h3>
+                <span class="px-2 py-0.5 bg-gold/10 text-gold-dark text-xs font-semibold rounded-full">{guide.tag}</span>
+              </div>
+              <p class="text-gray-600">{guide.desc}</p>
+            </div>
+            <span class="text-2xl text-gray-300 group-hover:text-gold transition-colors mt-1">&rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
